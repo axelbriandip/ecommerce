@@ -4,3 +4,4 @@ export { default as Nav } from './Nav.jsx';
 export { default as Login } from './Login.jsx';
 export { default as Cart } from './Cart.jsx';
 export { default as Purchases } from './Purchases.jsx';
+export { default as Loading } from './Loading.jsx';

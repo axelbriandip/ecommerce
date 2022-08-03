@@ -1,10 +1,14 @@
 import './css/main.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Home,ProductDetails, Nav, Login, Cart, Purchases } from './components/Index.jsx';
+import { Home,ProductDetails, Nav, Login, Cart, Purchases, Loading } from './components/Index.jsx';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const isLoading = useSelector(state => state.isLoading);
+
   return (
     <div className="App">
+      { isLoading && <Loading/> }
       <HashRouter>
         <Nav/>
         <Routes>
