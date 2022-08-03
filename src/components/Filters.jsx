@@ -4,15 +4,15 @@ import '../css/home.css';
 const Filters = () => {
     return (
         <aside className='aside-filters'>
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            <div className="accordion" id="accordionPanelsStayOpenExample">
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="panelsStayOpen-headingOne">
+                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                         Price
                     </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                    <div class="accordion-body">
+                    <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div className="accordion-body">
                         <div>
                             <label htmlFor="from">From</label>
                             <input type="number" min={0} step='100' id='from' />
@@ -27,14 +27,14 @@ const Filters = () => {
                     </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                         Category
                     </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body">
+                    <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                    <div className="accordion-body">
                         <ul>
                             <li>Smart TV</li>
                             <li>Computers</li>

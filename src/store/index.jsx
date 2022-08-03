@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import isLoadingSlice from './isLoading.slice'; 
+import isLoadingSlice from './slices/isLoading.slice';
 
 export default configureStore({
     reducer: {
