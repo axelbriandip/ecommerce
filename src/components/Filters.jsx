@@ -14,12 +14,12 @@ const Filters = () => {
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                         <div>
-                            <label htmlFor="">From</label>
-                            <input type="text" />
+                            <label htmlFor="from">From</label>
+                            <input type="number" min={0} step='100' id='from' />
                         </div>
                         <div>
-                            <label htmlFor="">To</label>
-                            <input type="text" />
+                            <label htmlFor="to">To</label>
+                            <input type="number" min={0} step='100' id='to' />
                         </div>
                         <div>
                             <button>Filter price</button>
