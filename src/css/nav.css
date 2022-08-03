@@ -1,14 +1,5 @@
 @import './main.css';
 
-:root {
-    --primary: #f85555;
-    --white: #fff;
-    --light-gray: #dcd9d9;
-    --gray: #c7c7c7;
-    --dark-gray: #4f4f4f;
-    --text-gray: #ababab;
-}
-
 nav {
     display: flex;
     justify-content: space-between;
