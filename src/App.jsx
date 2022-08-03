@@ -1,6 +1,6 @@
 import './css/main.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Home,ProductDetails, Nav, Login, Cart, Purchases, Loading } from './components/Index.jsx';
+import { Home,ProductDetails, Nav, Login, Cart, Purchases, Loading, Footer } from './components/Index.jsx';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/purchases' element={<Purchases/>}/>
         </Routes>
+        <Footer/>
       </HashRouter>
     </div>
   )

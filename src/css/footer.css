@@ -1,0 +1,25 @@
+@import './main.css';
+
+:root {
+    --primary: #f85555;
+    --white: #fff;
+    --light-gray: #dcd9d9;
+    --gray: #c7c7c7;
+    --dark-gray: #4f4f4f;
+    --text-gray: #ababab;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 1.5rem 0;
+}
+footer a {
+    text-decoration: none;
+    color: var(--white);
+    transition: .2s all;
+}
+footer a:hover {
+    color: var(--primary);
+}
