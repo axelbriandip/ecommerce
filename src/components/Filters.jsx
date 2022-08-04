@@ -1,14 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import '../css/home.css';
 import axios from 'axios';
+import { filterCategoriesThunk, getProductsThunk } from '../store/slices/products.slice';
+import { useDispatch } from 'react-redux';
 
 const Filters = () => {
+    const dispatch = useDispatch()
     const [ categories, setCategories ] = useState([]);
 
     useEffect(() => {
         axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`)
             .then(res => setCategories(res.data.data.categories))
     }, [])
+
+    // filter categories
+    const filterCategory = cat => {
+        dispatch(filterCategoriesThunk(cat));
+    }
+
+    // get all products
+    const getAll = () => {
+        dispatch(getProductsThunk())
+    }
 
     return (
         <aside className='aside-filters'>
@@ -44,9 +57,10 @@ const Filters = () => {
                     <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                     <div className="accordion-body">
                         <ul>
+                            <li onClick={getAll}>All</li>
                             {
                                 categories.map(item => (
-                                    <li key={item.id}>{item.name}</li>
+                                    <li key={item.id} onClick={() => filterCategory(`${item.id}`)}>{item.name}</li>
                                 ))
                             }
                         </ul>
