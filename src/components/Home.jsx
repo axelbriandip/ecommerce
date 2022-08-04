@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Filters from './Filters';
 import Products from './Products';
 import '../css/home.css';
