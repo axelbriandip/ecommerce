@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/home.css';
+import axios from 'axios';
 
 const Filters = () => {
+    const [ categories, setCategories ] = useState([]);
+
+    useEffect(() => {
+        axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`)
+            .then(res => setCategories(res.data.data.categories))
+    }, [])
+
     return (
         <aside className='aside-filters'>
             <div className="accordion" id="accordionPanelsStayOpenExample">
@@ -36,9 +44,11 @@ const Filters = () => {
                     <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                     <div className="accordion-body">
                         <ul>
-                            <li>Smart TV</li>
-                            <li>Computers</li>
-                            <li>Smartphones</li>
+                            {
+                                categories.map(item => (
+                                    <li key={item.id}>{item.name}</li>
+                                ))
+                            }
                         </ul>
                     </div>
                     </div>
