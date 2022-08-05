@@ -28,4 +28,8 @@ nav .buttons i {
     color: var(--text-gray);
     font-size: 1rem;
     cursor: pointer;
+    transition: .2s all;
+}
+nav .buttons i:hover {
+    color: var(--primary);
 }

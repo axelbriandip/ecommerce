@@ -3,6 +3,9 @@
 @import url('./loading.css');
 @import url('./nav.css');
 @import url('./productDetails.css');
+@import url('./login.css');
+@import url('./purchases.css');
+@import url('./cart.css');
 * {
   padding: 0;
   margin: 0;

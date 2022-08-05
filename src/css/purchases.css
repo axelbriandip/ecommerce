@@ -1,0 +1,13 @@
+@import './main.css';
+.section-purchases {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.section-purchases img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: contain;
+}

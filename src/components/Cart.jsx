@@ -1,10 +1,12 @@
 import React from 'react';
+import build_img from '../img/build.png';
 
 const Cart = () => {
     return (
-        <div>
-            <h1>test cart</h1>
-        </div>
+        <section className='section-cart'>
+            <img src={build_img}/>
+            <h1>Building cart</h1>
+        </section>
     );
 };
 

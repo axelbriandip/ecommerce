@@ -1,10 +1,12 @@
 import React from 'react';
+import build_img from '../img/build.png';
 
 const Login = () => {
     return (
-        <div>
-            <h1>test login</h1>
-        </div>
+        <section className='section-login'>
+            <img src={build_img}/>
+            <h1>Building login</h1>
+        </section>
     );
 };
 
