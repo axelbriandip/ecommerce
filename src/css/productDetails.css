@@ -10,3 +10,75 @@
 .section-pd {
     padding: 1rem 2.5rem;
 }
+.path p {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+.path i {
+    font-size: .4rem;
+    color: var(--primary);
+}
+.content-pd {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.photo {
+    background-color: slateblue;
+    height: 75vh;
+    width: 45vw;
+}
+.description {
+    /* background-color: wheat; */
+    height: 75vh;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.description h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.description p {
+    font-size: 1rem;
+}
+.description .buttons .price, 
+.description .buttons .quantity {
+    display: flex;
+    flex-direction: column;
+}
+.description .buttons .price span:first-child,
+.description .buttons .quantity span:first-child {
+    font-size: .9rem;
+    color: var(--text-gray);
+}
+.description .buttons .price span:last-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.description .buttons {
+    /* background-color: yellowgreen; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+}
+.description .buttons button {
+    grid-column: 1 / -1;
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem 0;
+}
+.addSubstract span {
+    margin: 0 .5rem;
+}
+.addSubstract i {
+    transition: .2s all;
+    cursor: pointer;
+}
+.addSubstract i:hover {
+    color: var(--primary);
+}
