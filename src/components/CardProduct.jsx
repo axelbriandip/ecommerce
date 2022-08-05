@@ -17,7 +17,7 @@ const CardProduct = ({ item }) => {
                     <span>${item.price}</span>
                 </div>
                 <div className='btn-buy'>
-                    Buy
+                    <i className="fa-solid fa-cart-shopping"></i>
                 </div>
             </div>
         </div>

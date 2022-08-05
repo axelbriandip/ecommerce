@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../css/home.css';
 import CardProduct from './CardProduct';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProductsThunk, filterProductsThunk } from '../store/slices/products.slice';
@@ -25,7 +24,9 @@ const Products = () => {
                 value={searchValue}
                 onChange={e => setSearchValue(e.target.value)}
                 />
-                <button onClick={filterProducts}>S</button>
+                <button onClick={filterProducts}>
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
             <div className='container-cards'>
                 {

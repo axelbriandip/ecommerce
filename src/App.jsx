@@ -1,7 +1,7 @@
 import './css/main.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Home,ProductDetails, Nav, Login, Cart, Purchases, Loading, Footer } from './components/Index.jsx';
 import { useSelector } from 'react-redux';
+import { Home, ProductDetails, Nav, Login, Cart, Purchases, Loading, Footer } from './components/Index.jsx';
 
 function App() {
   const isLoading = useSelector(state => state.isLoading);

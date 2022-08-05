@@ -1,4 +1,9 @@
-*, *::after, *::before {
+@import url('./footer.css');
+@import url('./home.css');
+@import url('./loading.css');
+@import url('./nav.css');
+@import url('./productDetails.css');
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;

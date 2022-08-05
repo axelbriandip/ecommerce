@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../css/home.css';
 import axios from 'axios';
 import { filterCategoriesThunk, getProductsThunk } from '../store/slices/products.slice';
 import { useDispatch } from 'react-redux';
@@ -72,7 +71,9 @@ const Filters = () => {
                             <input type="number" min={0} step='100' id='to' value={from} onChange={e => setFrom(e.target.value)}/>
                         </div>
                         <div>
-                            <button onClick={() => filterPrices(to, from)}>Filter price</button>
+                            <button onClick={() => filterPrices(to, from)}>
+                                <i className="fa-solid fa-filter"></i> Filter price
+                            </button>
                         </div>
                     </div>
                     </div>
