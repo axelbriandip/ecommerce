@@ -14,6 +14,18 @@ const productDetails = () => {
         .then(res => setProduct(res.data.data.product))
         .finally(() => dispatch(setIsLoading(false)));
     }, [])
+    // INDEX PHOTO
+    const [ indexPhoto, setIndexPhoto ] = useState(0);
+    const addIndexPhoto = () => {
+        if(indexPhoto == 0 || indexPhoto == 1) {
+            setIndexPhoto(indexPhoto + 1)
+        }
+    }
+    const substractIndexPhoto = () => {
+        if(indexPhoto == 1 || indexPhoto == 2) {
+            setIndexPhoto(indexPhoto - 1)
+        }
+    }
     return (
         <section className='section-pd'>
             <article className="path">
@@ -22,18 +34,18 @@ const productDetails = () => {
             <article className='content-pd'>
                 <div className="photo">
                     <div className="photo-main">
-                        <i class="fa-solid fa-circle-arrow-left"></i>
-                        <img src={product.productImgs?.[0]}/>
-                        <i class="fa-solid fa-circle-arrow-right"></i>
+                        <i onClick={substractIndexPhoto} className={ indexPhoto == 0 ? 'fa-solid fa-circle-arrow-left arrow-disabled' : 'fa-solid fa-circle-arrow-left' }></i>
+                        <img src={product.productImgs?.[indexPhoto]}/>
+                        <i onClick={addIndexPhoto} className={ indexPhoto == 2 ? 'fa-solid fa-circle-arrow-right arrow-disabled' : 'fa-solid fa-circle-arrow-right' }></i>
                     </div>
                     <div className="photo-others">
-                        <div className="others1">
+                        <div className={ indexPhoto == 0 ? 'photoSelect' : '' }>
                             <img src={product.productImgs?.[0]}/>
                         </div>
-                        <div className="others2">
+                        <div className={ indexPhoto == 1 ? 'photoSelect' : '' }>
                             <img src={product.productImgs?.[1]}/>
                         </div>
-                        <div className="others3">
+                        <div className={ indexPhoto == 2 ? 'photoSelect' : '' }>
                             <img src={product.productImgs?.[2]}/>
                         </div>
                     </div>
@@ -51,7 +63,7 @@ const productDetails = () => {
                         <div className="quantity">
                             <span>Quantity</span>
                             <div className='addSubstract'>
-                                <i class="fa-solid fa-minus"></i> <span>1</span> <i class="fa-solid fa-plus"></i>
+                                <i className="fa-solid fa-minus"></i> <span>1</span> <i className="fa-solid fa-plus"></i>
                             </div>
                         </div>
                         <button>Add to cart <i className="fa-solid fa-cart-shopping"></i></button>

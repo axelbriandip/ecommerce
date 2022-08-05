@@ -116,17 +116,27 @@
     /* background-color: blue; */
     height: 35%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: flex-end;
 }
 .photo .photo-others div {
     /* width: 20%; */
-    height: 100%;
+    /* height: 100%; */
+    height: 6rem;
+    width: 6rem;
+    border-radius: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .photo .photo-others div img {
     /* width: 50%; */
-    height: 30%;
+    height: 40%;
     object-fit: contain;
+}
+.photoSelect {
+    border: 2px solid var(--primary);
+}
+.arrow-disabled {
+    opacity: .5;
 }
