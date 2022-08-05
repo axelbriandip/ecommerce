@@ -95,7 +95,9 @@
     position: relative;
 }
 .photo .photo-main img{
+    object-fit: contain;
     width: 70%;
+    height: 80%;
 }
 .photo .photo-main i {
     font-size: 2rem;

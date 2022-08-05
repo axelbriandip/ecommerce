@@ -74,7 +74,9 @@ const productDetails = () => {
                         <div className="quantity">
                             <span>Quantity</span>
                             <div className='addSubstract not-selectable'>
-                                <i onClick={substractQuantity} className="fa-solid fa-minus"></i> <span>{quantity}</span> <i onClick={addQuantity} className="fa-solid fa-plus"></i>
+                                <i onClick={substractQuantity} className={ quantity == 1 ? 'fa-solid fa-minus arrow-disabled' : 'fa-solid fa-minus' }></i>
+                                <span>{quantity}</span>
+                                <i onClick={addQuantity} className="fa-solid fa-plus"></i>
                             </div>
                         </div>
                         <button>Add to cart <i className="fa-solid fa-cart-shopping"></i></button>
