@@ -17,11 +17,26 @@ const productDetails = () => {
     return (
         <section className='section-pd'>
             <article className="path">
-                <p>Home <i class="fa-solid fa-circle"></i> <strong>{product.title}</strong></p>
+                <p>Home <i className="fa-solid fa-circle"></i> <strong>{product.title}</strong></p>
             </article>
             <article className='content-pd'>
                 <div className="photo">
-                    photo
+                    <div className="photo-main">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <img src={product.productImgs?.[0]}/>
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                    </div>
+                    <div className="photo-others">
+                        <div className="others1">
+                            <img src={product.productImgs?.[0]}/>
+                        </div>
+                        <div className="others2">
+                            <img src={product.productImgs?.[1]}/>
+                        </div>
+                        <div className="others3">
+                            <img src={product.productImgs?.[2]}/>
+                        </div>
+                    </div>
                 </div>
                 <div className="description">
                     <div className="text">
