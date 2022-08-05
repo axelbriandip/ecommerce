@@ -26,6 +26,17 @@ const productDetails = () => {
             setIndexPhoto(indexPhoto - 1)
         }
     }
+    // QUANTITY
+    const [ quantity, setQuantity ] = useState(1);
+    const addQuantity = () => {
+        setQuantity(quantity + 1)
+    }
+    const substractQuantity = () => {
+        if(quantity > 1) {
+            setQuantity(quantity - 1)
+        }
+    }
+
     return (
         <section className='section-pd'>
             <article className="path">
@@ -62,8 +73,8 @@ const productDetails = () => {
                         </div>
                         <div className="quantity">
                             <span>Quantity</span>
-                            <div className='addSubstract'>
-                                <i className="fa-solid fa-minus"></i> <span>1</span> <i className="fa-solid fa-plus"></i>
+                            <div className='addSubstract not-selectable'>
+                                <i onClick={substractQuantity} className="fa-solid fa-minus"></i> <span>{quantity}</span> <i onClick={addQuantity} className="fa-solid fa-plus"></i>
                             </div>
                         </div>
                         <button>Add to cart <i className="fa-solid fa-cart-shopping"></i></button>

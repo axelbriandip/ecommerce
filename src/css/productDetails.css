@@ -140,3 +140,9 @@
 .arrow-disabled {
     opacity: .5;
 }
+.not-selectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
