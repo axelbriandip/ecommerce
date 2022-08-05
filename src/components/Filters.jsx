@@ -3,10 +3,19 @@ import '../css/home.css';
 import axios from 'axios';
 import { filterCategoriesThunk, getProductsThunk } from '../store/slices/products.slice';
 import { useDispatch } from 'react-redux';
+import { setProducts } from '../store/slices/products.slice';
 
 const Filters = () => {
     const dispatch = useDispatch()
     const [ categories, setCategories ] = useState([]);
+    const [ to, setTo ] =  useState(0);
+    const [ from, setFrom ] =  useState(0);
+
+    const [ fixedProducts, setFixedProducts ] = useState([]);
+    useEffect(() => {
+        axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products`)
+            .then(res => setFixedProducts(res.data.data.products));
+    }, [])
 
     useEffect(() => {
         axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`)
@@ -16,11 +25,31 @@ const Filters = () => {
     // filter categories
     const filterCategory = cat => {
         dispatch(filterCategoriesThunk(cat));
+        setTo(0);
+        setFrom(0);
     }
-
+    
     // get all products
     const getAll = () => {
         dispatch(getProductsThunk())
+        setTo(0);
+        setFrom(0);
+    }
+
+    // filter prices
+    const filterPrices = (to, from) => {
+        if(from >= to) {
+            dispatch(setProducts(fixedProducts));
+            const array = [];
+            for(let i = 0; i < fixedProducts.length; i++) {
+                if(Number(fixedProducts[i].price) >= to && Number(fixedProducts[i].price) <= from) {
+                    array.push(fixedProducts[i])
+                }
+            }
+            dispatch(setProducts(array));
+        } else {
+            alert("'To' whould be higher than 'From'")
+        }
     }
 
     return (
@@ -36,14 +65,14 @@ const Filters = () => {
                     <div className="accordion-body">
                         <div>
                             <label htmlFor="from">From</label>
-                            <input type="number" min={0} step='100' id='from' />
+                            <input type="number" min={0} step='100' id='from' value={to} onChange={e => setTo(e.target.value)}/>
                         </div>
                         <div>
                             <label htmlFor="to">To</label>
-                            <input type="number" min={0} step='100' id='to' />
+                            <input type="number" min={0} step='100' id='to' value={from} onChange={e => setFrom(e.target.value)}/>
                         </div>
                         <div>
-                            <button>Filter price</button>
+                            <button onClick={() => filterPrices(to, from)}>Filter price</button>
                         </div>
                     </div>
                     </div>
