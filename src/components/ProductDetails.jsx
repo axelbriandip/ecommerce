@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartThunk } from '../store/slices/myCart.slice';
 
@@ -20,7 +19,6 @@ const productDetails = () => {
         const filter = allProducts.filter(item => item.category?.id == productFind.category?.id);
         setSuggestedProducts(filter);
     }, [ id ])
-    console.log(suggestedProducts)
 
     // INDEX PHOTO
     const [ indexPhoto, setIndexPhoto ] = useState(0);
@@ -45,12 +43,18 @@ const productDetails = () => {
         }
     }
 
+    const allCart = useSelector(state => state.cart);
     const add = (id, quantity) => {
-        const obj = {
-            id: id,
-            quantity: quantity
+        const inCart = allCart.find(item => item.id == id)
+        if(inCart == undefined) {
+            const obj = {
+                id: id,
+                quantity: quantity
+            }
+            dispatch(addCartThunk(obj))
+        } else {
+            alert("¡Ya se encuentra en el carrito!")
         }
-        dispatch(addCartThunk(obj))
     }
 
     return (

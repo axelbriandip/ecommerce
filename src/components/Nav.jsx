@@ -19,8 +19,7 @@ const Nav = () => {
     }, [])
 
     const allCart = useSelector(state => state.cart);
-    console.log(allCart)
-
+    
     return (
         <nav>
             <Link to='/'><strong className='logo'>e-commerce</strong></Link>
