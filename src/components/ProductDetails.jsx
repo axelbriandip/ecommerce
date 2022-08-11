@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsLoading } from '../store/slices/isLoading.slice';
 
 const productDetails = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const { id } = useParams();
 
     const allProducts = useSelector(state => state.products);
@@ -21,7 +23,7 @@ const productDetails = () => {
         setProduct(productFind);
         const filter = allProducts.filter(item => item.category?.id == productFind.category?.id);
         setSuggestedProducts(filter);
-    }, [])
+    }, [ id ])
     console.log(suggestedProducts)
 
     // INDEX PHOTO
@@ -96,7 +98,7 @@ const productDetails = () => {
             <ul>
                 {
                     suggestedProducts.map(item => (
-                        <li key={item.id}>{item.title}</li>
+                        <li key={item.id} onClick={() => navigate(`/product/${item.id}`)}>{item.title}</li>
                     ))
                 }
             </ul>
