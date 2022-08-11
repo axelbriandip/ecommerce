@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Offcanvas } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMyCartThunk } from '../store/slices/myCart.slice';
+import { buyCartThunk, getMyCartThunk } from '../store/slices/myCart.slice';
 
 const Nav = () => {
 
@@ -45,7 +45,7 @@ const Nav = () => {
                             ))
                         }
                     </ul>
-                    <button>Add to cart</button>
+                    <button onClick={() => dispatch(buyCartThunk())}>Add to cart</button>
                 </Offcanvas.Body>
                 </Offcanvas>
             </>
