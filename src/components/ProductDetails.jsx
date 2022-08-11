@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsLoading } from '../store/slices/isLoading.slice';
+import { addCartThunk } from '../store/slices/myCart.slice';
 
 const productDetails = () => {
     const dispatch = useDispatch();
@@ -15,10 +15,6 @@ const productDetails = () => {
     const [ suggestedProducts, setSuggestedProducts ] = useState([]);
 
     useEffect(() => {
-        // dispatch(setIsLoading(true));
-        // axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
-        // .then(res => setProduct(res.data.data.product))
-        // .finally(() => dispatch(setIsLoading(false)));
         const productFind = allProducts.find(item => item.id == id)
         setProduct(productFind);
         const filter = allProducts.filter(item => item.category?.id == productFind.category?.id);
@@ -47,6 +43,14 @@ const productDetails = () => {
         if(quantity > 1) {
             setQuantity(quantity - 1)
         }
+    }
+
+    const add = (id, quantity) => {
+        const obj = {
+            id: id,
+            quantity: quantity
+        }
+        dispatch(addCartThunk(obj))
     }
 
     return (
@@ -91,7 +95,7 @@ const productDetails = () => {
                                 <i onClick={addQuantity} className="fa-solid fa-plus"></i>
                             </div>
                         </div>
-                        <button>Add to cart <i className="fa-solid fa-cart-shopping"></i></button>
+                        <button onClick={() => add(product.id, quantity)}>Add to cart <i className="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </article>

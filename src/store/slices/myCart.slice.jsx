@@ -20,6 +20,13 @@ export const getMyCartThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const addCartThunk = body => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/cart`, body, getConfig())
+        .then(() => dispatch(getMyCartThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const { setMyCart } = myCartSlice.actions;
 
 export default myCartSlice.reducer;
