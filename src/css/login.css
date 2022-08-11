@@ -49,3 +49,16 @@
     font-weight: bold;
     text-decoration: none;
 }
+/* card user logged */
+.card-user-logged {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    padding: 2rem 5rem;
+    gap: 1rem;
+}
+.card-user-logged i {
+    font-size: 5rem;
+}
