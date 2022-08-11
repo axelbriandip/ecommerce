@@ -20,7 +20,7 @@ function App() {
             <Route path='/purchases' element={<Purchases/>}/>
           </Route>
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </HashRouter>
     </div>
   )

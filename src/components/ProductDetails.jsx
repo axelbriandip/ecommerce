@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartThunk } from '../store/slices/myCart.slice';
+import CardSuggestedProduct from './CardSuggestedProduct';
 
 const productDetails = () => {
     const dispatch = useDispatch();
@@ -104,13 +105,16 @@ const productDetails = () => {
                     </div>
                 </div>
             </article>
-            <ul>
-                {
-                    suggestedProducts.map(item => (
-                        <li key={item.id} onClick={() => navigate(`/product/${item.id}`)}>{item.title}</li>
-                    ))
-                }
-            </ul>
+            <article className='container-suggested'>
+                <h5>Discover similar items</h5>
+                <div className='suggested-products'>
+                    {
+                        suggestedProducts.map(item => (
+                            <CardSuggestedProduct key={item.id} item={item}/>
+                        ))
+                    }
+                </div>
+            </article>
         </section>
     );
 };
