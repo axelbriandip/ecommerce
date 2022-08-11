@@ -31,6 +31,12 @@
 .item-cart .header-item .text p:nth-child(2) {
     /* title */
     font-weight: bold;
+    cursor: pointer;
+    transition: .2s all;
+}
+.item-cart .header-item .text p:nth-child(2):hover {
+    /* title hover */
+    color: var(--primary);
 }
 .item-cart .header-item .text p:nth-child(3) {
     /* quantity */
@@ -51,6 +57,7 @@
 }
 .item-cart .delete {
     color: var(--primary);
+    cursor: pointer;
 }
 .body-sidebar button {
     background-color: var(--primary);
