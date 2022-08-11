@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Offcanvas } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMyCartThunk } from '../store/slices/myCart.slice';
 
 const Nav = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    useEffect(() => {
+        dispatch(getMyCartThunk())
+    }, [])
+
+    const allCart = useSelector(state => state.cart);
+    console.log(allCart)
 
     return (
         <nav>
@@ -28,11 +40,13 @@ const Nav = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <ul>
-                        <li>a</li>
-                        <li>a</li>
-                        <li>a</li>
-                        <li>a</li>
+                        {
+                            allCart.map(item => (
+                                <li key={item.id} onClick={() => navigate(`/product/${item.id}`)}>{item.title}</li>
+                            ))
+                        }
                     </ul>
+                    <button>Add to cart</button>
                 </Offcanvas.Body>
                 </Offcanvas>
             </>
