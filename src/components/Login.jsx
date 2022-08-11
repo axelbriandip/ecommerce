@@ -5,17 +5,21 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate();
     
-    const [ user, setUser ] = useState('');
+    const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [ user, setUser ] = useState({});
+    const token = localStorage.getItem('token');
 
     const submit = e => {
         e.preventDefault();
         const objeto = {
-            email: user,
+            email: email,
             password: password
         }
         axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/users/login`, objeto)
             .then(res => {
+                // guardar user acá
+                console.log(res.data.data.user);
                 localStorage.setItem('token', res.data.data.token);
                 navigate('/');
             })
@@ -23,19 +27,21 @@ const Login = () => {
                 if(err.response.status === 400) alert(`${err.response.data.status}: ${err.response.data.message}`)
                 if(err.response.status === 404) alert(`${err.response.data.status}: ${err.response.data.message}`)
             })
-    }
-
+            // alert(token);
+        }
+        
     const logout = () => {
         localStorage.setItem('token', '');
         navigate('/login');
+        // alert(token);
     }
 
     return (
         <section className='section-login'>
             <form onSubmit={submit}>
                 <div>
-                    <label htmlFor="user">User</label>
-                    <input type="email" id='user' value={user} onChange={e => setUser(e.target.value)}/>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id='email' value={email} onChange={e => setEmail(e.target.value)}/>
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
@@ -43,7 +49,9 @@ const Login = () => {
                 </div>
                 <button>submit</button>
             </form>
-            <button onClick={logout}>Log out</button>
+            {
+                token !== "" && (<button onClick={logout}>Log out</button>) 
+            }
         </section>
     );
 };

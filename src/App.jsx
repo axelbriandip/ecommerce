@@ -14,9 +14,9 @@ function App() {
         <Nav/>
         <Routes>
           <Route path='/login' element={<Login/>}/>
-          <Route element={ <ProtectedRoutes/> }>
             <Route path='/' element={<Home/>}/>
             <Route path='/product/:id' element={<ProductDetails/>}/>
+          <Route element={ <ProtectedRoutes/> }>
             <Route path='/purchases' element={<Purchases/>}/>
           </Route>
         </Routes>
