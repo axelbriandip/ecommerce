@@ -27,16 +27,17 @@
     gap: 1rem;
     background-color: #eee;
 }
-.section-login .container-input {
+.container-input {
     display: flex;
     flex-direction: column;
 }
-.section-login .container-input input {
+.container-input input {
     border: 1px solid var(--text-gray);
     padding: .4rem;
     outline: none;
 }
-.section-login button {
+.section-login button,
+.container-signup button {
     margin-top: 1rem;
     background-color: var(--primary);
     color: var(--white);
@@ -61,4 +62,11 @@
 }
 .card-user-logged i {
     font-size: 5rem;
+}
+/* sign up */
+.container-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
 }

@@ -8,7 +8,6 @@ const CardUserLogged = () => {
     const dispatch = useDispatch();
 
     const logout = () => {
-        alert("Entré a logout");
         localStorage.setItem('token', '');
         dispatch(setUserLogged([]))
         navigate('/login');
