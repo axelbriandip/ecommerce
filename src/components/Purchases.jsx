@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPurchases, getPurchasesThunk } from '../store/slices/purchases.slice';
+import { setPurchases } from '../store/slices/purchases.slice';
 import axios from 'axios';
 import getConfig from '../utils/getConfig';
+import CardPurchase from './CardPurchase';
 
 const Purchases = () => {
 
@@ -17,14 +18,18 @@ const Purchases = () => {
             .then(res => dispatch(setPurchases(res.data.data.purchases)))
     }, [])
 
-    const purchases = useSelector(state => state.purchases);
-
+    const allPurchases = useSelector(state => state.purchases);
+    console.log(allPurchases[0]);
     return (
         <section className='section-purchases'>
+            <article className="path">
+                <p>Home <i className="fa-solid fa-circle"></i> <strong>purchases</strong></p>
+            </article>
+            <h4>My purchases</h4>
             <ul>
                 {
-                    purchases.map(item => (
-                        <li key={item.id}>id purchase: {item.id}</li>
+                    allPurchases.map(item => (
+                        <CardPurchase key={item.id} item={item}/>
                     ))
                 }
             </ul>

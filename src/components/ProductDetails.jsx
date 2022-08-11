@@ -62,6 +62,7 @@ const productDetails = () => {
             <article className="path">
                 <p>Home <i className="fa-solid fa-circle"></i> <strong>{product?.title}</strong></p>
             </article>
+            
             <article className='content-pd'>
                 <div className="photo">
                     <div className="photo-main">

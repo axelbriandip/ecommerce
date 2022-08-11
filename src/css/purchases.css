@@ -1,1 +1,72 @@
 @import './main.css';
+
+:root {
+    --primary: #f85555;
+    --white: #fff;
+    --light-gray: #dcd9d9;
+    --gray: #c7c7c7;
+    --dark-gray: #4f4f4f;
+    --text-gray: #ababab;
+}
+
+.section-purchases {
+    padding: 1rem 2.5rem;
+}
+.path {
+    margin-bottom: 2rem;
+}
+.path p {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+.path i {
+    font-size: .4rem;
+    color: var(--primary);
+}
+.content-purchases {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.section-purchases h4 {
+    font-weight: bold;
+}
+
+/* card purcharse */
+.card-purcharse {
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gray);
+    border-radius: .5rem;
+    margin: 1rem 0;
+}
+.date-purcharse {
+    margin-bottom: 1rem;
+}
+.items-purcharse {
+    display: flex;
+    flex-direction: column;
+}
+.items-purcharse div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: .2s all;
+}
+.items-purcharse div:hover {
+    color: var(--primary);
+}
+.items-purcharse div span:nth-child(1) {
+    margin-left: 3rem;
+    text-align: left;
+    width: 80%;
+}
+.items-purcharse div span:nth-child(2) {
+    text-align: right;
+    width: 5%;
+}
+.items-purcharse div span:nth-child(3) {
+    text-align: right;
+    width: 15%;
+}
