@@ -26,13 +26,11 @@ const Purchases = () => {
                 <p>Home <i className="fa-solid fa-circle"></i> <strong>purchases</strong></p>
             </article>
             <h4>My purchases</h4>
-            <ul>
-                {
-                    allPurchases.map(item => (
-                        <CardPurchase key={item.id} item={item}/>
-                    ))
-                }
-            </ul>
+            {
+                allPurchases.map(item => (
+                    <CardPurchase key={item.id} item={item}/>
+                ))
+            }
         </section>
     );
 };

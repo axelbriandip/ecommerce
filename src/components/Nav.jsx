@@ -20,8 +20,9 @@ const Nav = () => {
     }, [])
 
     const allCart = useSelector(state => state.cart);
-    // console.log(allCart);
-    
+
+    const token = localStorage.getItem('token');
+
     return (
         <nav>
             <Link to='/'><strong className='logo'>e-commerce</strong></Link>
@@ -29,8 +30,14 @@ const Nav = () => {
                 <Link to='/login'>
                     <i className="fa-solid fa-user"></i>
                 </Link>
-                <Link to='/purchases'><i className="fa-solid fa-shop"></i></Link>
-                <Link to='/purchases' onClick={handleShow}><i className="fa-solid fa-cart-shopping"></i></Link>
+                {
+                    token !== '' && (
+                        <>
+                        <Link to='/purchases'><i className="fa-solid fa-shop"></i></Link>
+                        <Link to='/purchases' onClick={handleShow}><i className="fa-solid fa-cart-shopping"></i></Link>
+                        </>
+                    )
+                }
             </div>
             <>
                 <Offcanvas show={show} onHide={handleClose} placement='end'>
@@ -40,13 +47,11 @@ const Nav = () => {
                 </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body className='body-sidebar'>
-                    {/* <ul> */}
-                        {
-                            allCart.map(item => (
-                                <ItemCart key={item.id} item={item}/>
-                            ))
-                        }
-                    {/* </ul> */}
+                    {
+                        allCart.map(item => (
+                            <ItemCart key={item.id} item={item}/>
+                        ))
+                    }
                     <button onClick={() => dispatch(buyCartThunk())}>Add to cart</button>
                 </Offcanvas.Body>
                 </Offcanvas>

@@ -17,27 +17,27 @@ const SignUp = () => {
     const submit = e => {
         e.preventDefault();
         const objeto = {
+            firstName: firstname,
+            lastName: lastname,
             email: email,
-            firstname: firstname,
-            lastname: lastname,
+            password: password,
             phone: phone,
-            password: password
+            password: password,
+            role: 'admin'
         }
-        axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/users/login`, objeto)
+        axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/users`, objeto)
             .then(res => {
-                // guardar user acá
-                dispatch(setUserLogged(res.data.data.user));
-                localStorage.setItem('token', res.data.data.token);
-                navigate('/');
+                alert("User added, enter in your account");
+                // dispatch(setUserLogged(res.data.data.user));
+                // localStorage.setItem('token', res.data.data.token);
+                navigate('/login');
             })
             .catch(err => {
                 if(err.response?.status === 400) alert(`${err.response.data?.status}: ${err.response.data.message}`)
                 if(err.response?.status === 404) alert(`${err.response.data?.status}: ${err.response.data.message}`)
             })
-            // alert(token);
         }
 
-        // dispatch(setUserLogged(user));
 
     return (
         <div className='container-signup'>
@@ -57,7 +57,7 @@ const SignUp = () => {
                 </div>
                 <div className='container-input'>
                     <label htmlFor="password">Password</label>
-                    <input type="text" id='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                    <input type="password" id='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 </div>
                 <div className='container-input'>
                     <label htmlFor="phone">Phone</label>
