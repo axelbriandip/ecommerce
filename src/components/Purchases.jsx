@@ -6,7 +6,7 @@ import getConfig from '../utils/getConfig';
 const Purchases = () => {
     useEffect(() => {
         axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`, getConfig())
-            .then(res => console.log(res.data.data.purchases))
+            // .then(res => console.log(res.data.data.purchases))
     }, [])
 
     return (
