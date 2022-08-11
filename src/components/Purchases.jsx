@@ -1,18 +1,33 @@
 import React, { useEffect } from 'react';
-import build_img from '../img/build.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPurchases, getPurchasesThunk } from '../store/slices/purchases.slice';
 import axios from 'axios';
 import getConfig from '../utils/getConfig';
 
 const Purchases = () => {
+
+    const dispatch = useDispatch();
+
+    /*
+    Tuve que hacer de esta manera porque con el thunk me saltaba el siguiente error..
+    "Uncaught TypeError: Cannot read properties of undefined (reading 'type')"
+    */
     useEffect(() => {
         axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`, getConfig())
-            // .then(res => console.log(res.data.data.purchases))
+            .then(res => dispatch(setPurchases(res.data.data.purchases)))
     }, [])
+
+    const purchases = useSelector(state => state.purchases);
 
     return (
         <section className='section-purchases'>
-            <img src={build_img}/>
-            <h1>Building purchases</h1>
+            <ul>
+                {
+                    purchases.map(item => (
+                        <li key={item.id}>id purchase: {item.id}</li>
+                    ))
+                }
+            </ul>
         </section>
     );
 };
