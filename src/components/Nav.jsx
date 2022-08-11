@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Offcanvas } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { buyCartThunk, getMyCartThunk } from '../store/slices/myCart.slice';
+import ItemCart from './ItemCart';
 
 const Nav = () => {
 
@@ -19,6 +20,7 @@ const Nav = () => {
     }, [])
 
     const allCart = useSelector(state => state.cart);
+    // console.log(allCart);
     
     return (
         <nav>
@@ -33,18 +35,18 @@ const Nav = () => {
             <>
                 <Offcanvas show={show} onHide={handleClose} placement='end'>
                 <Offcanvas.Header closeButton>
-                <Offcanvas.Title>
-                    <h1>title sidebar</h1>
+                <Offcanvas.Title className='title-sidebar'>
+                    <h1>My cart</h1>
                 </Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <ul>
+                <Offcanvas.Body className='body-sidebar'>
+                    {/* <ul> */}
                         {
                             allCart.map(item => (
-                                <li key={item.id} onClick={() => navigate(`/product/${item.id}`)}>{item.title}</li>
+                                <ItemCart key={item.id} item={item}/>
                             ))
                         }
-                    </ul>
+                    {/* </ul> */}
                     <button onClick={() => dispatch(buyCartThunk())}>Add to cart</button>
                 </Offcanvas.Body>
                 </Offcanvas>

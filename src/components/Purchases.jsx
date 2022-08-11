@@ -19,7 +19,7 @@ const Purchases = () => {
     }, [])
 
     const allPurchases = useSelector(state => state.purchases);
-    console.log(allPurchases[0]);
+    // console.log(allPurchases[0]);
     return (
         <section className='section-purchases'>
             <article className="path">

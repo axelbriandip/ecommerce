@@ -5,6 +5,7 @@
 @import url('./productDetails.css');
 @import url('./login.css');
 @import url('./purchases.css');
+@import url('./sidebar.css');
 
 * {
   padding: 0;
