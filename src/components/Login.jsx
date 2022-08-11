@@ -38,16 +38,18 @@ const Login = () => {
 
     return (
         <section className='section-login'>
-            <form onSubmit={submit}>
-                <div>
+            <form onSubmit={submit} className='form-login'>
+                <h3>Welcome! Enter your email and password to continue</h3>
+                <div className='container-input'>
                     <label htmlFor="email">Email</label>
                     <input type="email" id='email' value={email} onChange={e => setEmail(e.target.value)}/>
                 </div>
-                <div>
+                <div className='container-input'>
                     <label htmlFor="password">Password</label>
-                    <input type="text" id='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                    <input type="pasword" id='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 </div>
-                <button>submit</button>
+                <button>Login</button>
+                <p>Don't have an account? <a href="">Sign up</a></p>
             </form>
             {
                 token !== "" && (<button onClick={logout}>Log out</button>) 
