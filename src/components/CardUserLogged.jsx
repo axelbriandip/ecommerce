@@ -9,6 +9,8 @@ const CardUserLogged = () => {
 
     const logout = () => {
         localStorage.setItem('token', '');
+        localStorage.setItem('firstname', '')
+        localStorage.setItem('lastname', '')
         dispatch(setUserLogged([]))
         navigate('/login');
     }
@@ -17,7 +19,7 @@ const CardUserLogged = () => {
     return (
         <div className='card-user-logged'>
             <i className="fa-solid fa-user"></i>
-            <span>{userLogged_store.lastName}, {userLogged_store.firstName}</span>
+            <span>{localStorage.getItem('lastname')}, {localStorage.getItem('firstname')}</span>
             <button onClick={logout}>Logout</button>
         </div>
     );

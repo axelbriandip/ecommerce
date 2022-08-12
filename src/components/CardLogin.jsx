@@ -24,6 +24,8 @@ const CardLogin = () => {
             .then(res => {
                 // guardar user acá
                 dispatch(setUserLogged(res.data.data.user));
+                localStorage.setItem('firstname', res.data.data.user.firstName)
+                localStorage.setItem('lastname', res.data.data.user.lastName)
                 localStorage.setItem('token', res.data.data.token);
                 navigate('/');
             })
