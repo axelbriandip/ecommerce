@@ -54,7 +54,7 @@ const productDetails = () => {
             }
             dispatch(addCartThunk(obj))
         } else {
-            alert("¡Ya se encuentra en el carrito!")
+            alert("Primero debe iniciar sesión o ya se encuentra en el carrito..")
         }
     }
 
