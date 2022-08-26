@@ -63,9 +63,8 @@ const productDetails = () => {
             <article className="path">
                 <p>Home <i className="fa-solid fa-circle"></i> <strong>{product?.title}</strong></p>
             </article>
-            
-            <article className='content-pd'>
-                <div className="photo">
+            <article className='content-pd row'>
+                <div className="photo col-12 col-md-6">
                     <div className="photo-main">
                         <i onClick={substractIndexPhoto} className={ indexPhoto == 0 ? 'fa-solid fa-circle-arrow-left arrow-disabled' : 'fa-solid fa-circle-arrow-left' }></i>
                         <img src={product?.productImgs?.[indexPhoto]}/>
@@ -83,7 +82,7 @@ const productDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="description">
+                <div className="description col-12 col-md-6">
                     <div className="text">
                         <h1>{product?.title}</h1>
                         <p>{product?.description}</p>
@@ -107,7 +106,7 @@ const productDetails = () => {
             </article>
             <article className='container-suggested'>
                 <h5>Discover similar items</h5>
-                <div className='suggested-products'>
+                <div className='suggested-products row'>
                     {
                         suggestedProducts.map(item => (
                             <CardSuggestedProduct key={item.id} item={item}/>

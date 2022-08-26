@@ -6,6 +6,7 @@
 @import url('./login.css');
 @import url('./purchases.css');
 @import url('./sidebar.css');
+@import url('./columns.css');
 
 * {
   padding: 0;

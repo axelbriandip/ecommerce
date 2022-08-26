@@ -16,7 +16,7 @@ const Products = () => {
         dispatch(filterProductsThunk(searchValue))
     }
     return (
-        <section className='section-products'>
+        <section className='section-products col-12 col-md-8'>
             <div className='container-search'>
                 <input
                 type="text"

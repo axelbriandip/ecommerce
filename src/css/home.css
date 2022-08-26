@@ -42,7 +42,7 @@
     justify-content: flex-end;
 }
 .accordion-body div input {
-    width: 10rem;
+    width: 6rem;
     padding: .2rem 0 .2rem .5rem;
     border: 1px solid var(--light-gray);
 }

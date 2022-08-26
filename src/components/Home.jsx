@@ -4,7 +4,7 @@ import Products from './Products';
 
 const home = () => {
     return (
-        <main className="main">
+        <main className="main row">
             <Filters/>
             <Products/>
         </main>

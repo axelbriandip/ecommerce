@@ -9,7 +9,7 @@ const CardSuggestedProduct = ({ item }) => {
     const img = item.productImgs[0];
 
     return (
-        <article className='card-sug-product' onClick={() => navigate(`/product/${item.id}`)}>
+        <article className='card-sug-product col-5 col-md-3' onClick={() => navigate(`/product/${item.id}`)}>
             <div className='container-img'>
                 <img src={img}/>
             </div>
